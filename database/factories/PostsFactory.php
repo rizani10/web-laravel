@@ -18,7 +18,7 @@ class PostsFactory extends Factory
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->text(mt_rand(40, 100)),
             'body' => '<p>' . implode('<p></p>' , $this->faker->paragraphs(mt_rand(20, 30))) . '</p>',
-            'category_id' => mt_rand(1, 10),
+            'category_id' => mt_rand(1, 3),
         ];
     }
 }

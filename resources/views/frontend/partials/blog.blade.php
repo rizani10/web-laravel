@@ -2,20 +2,37 @@
 
     <div class="section-title">
     <h2>Blog</h2>
-    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
+        @foreach ($posts as $post)
+        
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="box">
+                    <div class="position-absolute bg-dark px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.5)" class="text-white text-decoration-none">{{ $post->category->name }}</div>
 
-    <div class="col-lg-4">
-        <div class="box">
-        <span>01</span>
-        <h4>Lorem Ipsum</h4>
-        <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
-        </div>
+                    @if ($post->image)
+                                    <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->title }}" class="img-fluid mb-3">
+                            @else
+                                <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
+                            @endif
+
+                    <h4>{{ $post->title }}</h4>
+                    <p>{{ $post->excerpt }}</p>
+                    <a href="" class="text-decoration-none btn btn-sm btn-primary mb-3">baca selengkapnya ... </a>
+                </div>
+            </div>
+        @endforeach
+
+        
     </div>
 
-    <div class="col-lg-4 mt-4 mt-lg-0">
+    <div class="d-flex justify-content-center mt-3">
+        <a href="/blog" class="btn btn-primary">Selengkapnya .. </a>
+    </div>
+
+</div>
+    {{-- <div class="col-lg-4 mt-4 mt-lg-0">
         <div class="box">
         <span>02</span>
         <h4>Repellat Nihil</h4>
@@ -29,8 +46,4 @@
         <h4> Ad ad velit qui</h4>
         <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
         </div>
-    </div>
-
-    </div>
-
-</div>
+    </div> --}}
