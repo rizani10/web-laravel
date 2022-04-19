@@ -8,8 +8,8 @@
             </div>
         
             <div class="row justify-content-center">
-                @foreach ($posts as $post)
-                
+
+                @forelse ($posts as $post)
                     <div class="col-lg-4 mt-4 mt-lg-0">
                         <div class="box">
                             <div class="position-absolute bg-dark px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.5)" class="text-white text-decoration-none">{{ $post->category->name }}</div>
@@ -22,10 +22,16 @@
         
                             <h4>{{ $post->title }}</h4>
                             <p>{{ $post->excerpt }}</p>
-                            <a href="" class="text-decoration-none btn btn-sm btn-primary mb-3">baca selengkapnya ... </a>
+                            <a href="{{ $post->slug }}" class="text-decoration-none btn btn-sm btn-primary mb-3">baca selengkapnya ... </a>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="box">
+                        <h4 class=justify-content-center>Tidak ada post</h4>
+                    </div>
+                @endforelse
+                
+                    
         
                 
             </div>

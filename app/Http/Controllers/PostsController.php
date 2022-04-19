@@ -64,4 +64,11 @@ class PostsController extends Controller
             'posts' => Posts::latest()->paginate(6),
         ]);
     }
+
+    public function post(Posts $post)
+    {
+        return view('frontend.post', [
+            'post' => $post,
+        ]);
+    }
 }

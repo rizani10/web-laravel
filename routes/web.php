@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::resource('/', PostsController::class);
 Route::get('/blog', [PostsController::class, 'posts']);
+Route::get('/{post:slug}', [PostsController::class, 'post']);
